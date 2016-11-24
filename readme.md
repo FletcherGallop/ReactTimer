@@ -1,6 +1,3 @@
 Basic React Timer Application
 
-Using:
-  - Foundation
-  - SCSS
-For styling
+Using Foundation and SCSS for styling.
