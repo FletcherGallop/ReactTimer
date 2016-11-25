@@ -1,14 +1,13 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry : [
+  entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
     './app/app.jsx'
   ],
   externals: {
     jquery: 'jQuery'
-
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -16,33 +15,33 @@ module.exports = {
       'jQuery': 'jquery'
     })
   ],
-  output : {
+  output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
-    root : __dirname,
+    root: __dirname,
     alias: {
       Main: 'app/components/Main.jsx',
       applicationStyles: 'app/styles/app.scss',
-      Nav: 'app/components/Nav.jsx',
+      Navigation: 'app/components/Navigation.jsx',
       Timer: 'app/components/Timer.jsx',
       Countdown: 'app/components/Countdown.jsx',
       Clock: 'app/components/Clock.jsx'
     },
-    extensions : ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   module: {
-    loaders : [
+    loaders: [
       {
         loader: 'babel-loader',
         query: {
-          compact: false,
           presets: ['react', 'es2015', 'stage-0']
         },
         test: /\.jsx?$/,
-        exlude: /(node_modules|bower_components)/
+        exclude: /(node_modules|bower_components)/
       }
     ]
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 };
